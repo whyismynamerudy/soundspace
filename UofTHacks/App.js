@@ -1,6 +1,10 @@
 import { StatusBar } from "expo-status-bar";
 import { Logs } from "expo";
 import { Audio } from "expo-av";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import UploadScreen from "./UploadScreen";
+import LoginScreen from "./LoginScreen";
 
 import {
 	StyleSheet,
@@ -10,7 +14,8 @@ import {
 	View,
 } from "react-native";
 
-import React, { useState } from "react";
+import * as React from "react";
+import { useState } from "react";
 
 Logs.enableExpoCliLogging();
 
@@ -19,7 +24,21 @@ const height = Dimensions.get("window").height;
 
 let recordingOngoing = false;
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+
+export default function App({ navigation }) {
+	return (
+		<NavigationContainer>
+			<Stack.Navigator>
+				<Stack.Screen name="Login" component={LoginScreen} />
+				<Stack.Screen name="Record" component={RecordScreen} />
+				<Stack.Screen name="Upload" component={UploadScreen} />
+			</Stack.Navigator>
+		</NavigationContainer>
+	);
+}
+
+const RecordScreen = ({ navigation }) => {
 	const [recording, setRecording] = useState(null);
 	const [timerText, setTimerText] = useState("Press record to start!");
 
@@ -47,7 +66,6 @@ export default function App() {
 
 	async function stopRecording() {
 		recordingOngoing = false;
-		setTimerText("Press record to start!");
 		console.log("Stopping recording..");
 		setRecording(undefined);
 		await recording.stopAndUnloadAsync();
@@ -55,10 +73,11 @@ export default function App() {
 			allowsRecordingIOS: false,
 		});
 		const uri = recording.getURI();
-		getAverageAmplitudefromAudio();
+		setTimerText("Recording saved!");
+		// console.log('Recording stopped and stored at', uri);
+		navigation.navigate("Upload", { name: "Jane" });
 	}
 
-	const getAverageAmplitudefromAudio = async () => {};
 	return (
 		<View style={styles.container}>
 			<Text style={styles.title}>UofTSoundSpace</Text>
@@ -74,13 +93,14 @@ export default function App() {
 			<StatusBar style="auto" />
 		</View>
 	);
-}
+};
 
 const styles = StyleSheet.create({
 	title: {
 		fontSize: 0.1 * width,
 		fontWeight: "bold",
 		color: "white",
+		marginTop: height * 0.1,
 	},
 	timer: {
 		marginTop: height * 0.4,
@@ -92,7 +112,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: "#fff",
 		alignItems: "center",
-		justifyContent: "center",
+		justifyContent: "start",
 		backgroundColor: "rgb(37, 53, 90)",
 	},
 	recordButton: {
