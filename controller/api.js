@@ -18,3 +18,5 @@ apiRouter.get('/allLocations', async (req, res) => {
         console.log(result.data);
     })
 });
+
+module.exports = apiRouter;

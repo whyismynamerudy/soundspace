@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
+const path = require('path')
 const cors = require('cors');
 const { graphqlHTTP } = require('express-graphql');
-const { buildSchema } = require('graphql');
 const mongoose = require('mongoose');
 const schema = require('./schema');
 const apiRouter = require('./controller/api')
+
+// const router = express.Router();
 
 require('dotenv').config();
 
