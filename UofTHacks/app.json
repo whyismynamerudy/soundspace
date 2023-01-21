@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "UofTSoundSpace",
-    "slug": "UofTSoundSpace",
+    "name": "UofTHacks",
+    "slug": "UofTHacks",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
