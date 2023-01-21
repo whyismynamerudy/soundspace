@@ -59,6 +59,10 @@ app.use(function (req, res, next) {
 //     }
 // `);
 
+app.get('/', (req, res) => {
+    res.send("<h1>hi there</h1>");
+})
+
 app.use("/api", apiRouter);
 
 app.use('/graphql', graphqlHTTP({
