@@ -1,0 +1,27 @@
+{
+  "name": "uofthacksx",
+  "version": "1.0.0",
+  "description": "a cross-platform mobile application designed for uoft students to discover quiet study spots on campus",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whyismynamerudy/uofthacksx.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/whyismynamerudy/uofthacksx/issues"
+  },
+  "homepage": "https://github.com/whyismynamerudy/uofthacksx#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
