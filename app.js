@@ -1,6 +1,21 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const { graphqlHTTP } = require('express-graphql');
+const { buildSchema } = require('graphql');
+const mongoose = require('mongoose');
+const schema = require('./schema');
+const apiRouter = require('./controller/api')
+
+require('dotenv').config();
+
+mongoose.connect(String(process.env.MONGODB_URL), {useNewUrlParser:true, useUnifiedTopology: true})
+    .then(() => {
+        console.log("connected to db");
+    })
+    .catch((error) => {
+        console.log("error", error);
+    });
 
 app.use(function (req, res, next) {
 
@@ -21,11 +36,37 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.get("/", (req, res) => {
-    res.send('<h1>poopidy scoop</h1>');
-})
+// const schema = buildSchema(`
+//     type Location {
+//         address: String!
+//         soundLevelIds: [Int!]
+//         id: Int!
+//     },
+//     type SoundBite {
+//         address: String!
+//         avgDecibel: Float
+//         id: Int!
+//     },
+//     type Query {
+//         location(id: Int!): Location
+//         locationAllSoundLevels(id: Int!): [SoundBite!]
+//         soundBite(id: Int!): SoundBite
+//     },
+//     type Mutation {
+//         updateLocation(id: Int!): Location
+//     }
+// `);
+
+app.use("/api", apiRouter);
+
+app.use('/graphql', graphqlHTTP({
+    schema, 
+    graphiql: true
+}))
 
 app.use(cors());
 app.use(express.json()); //allows backend to recieve JSON data from frontend
 
 module.exports = app;
+
+//for mongodb, admin root

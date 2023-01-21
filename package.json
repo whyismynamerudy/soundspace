@@ -19,8 +19,14 @@
   "homepage": "https://github.com/whyismynamerudy/uofthacksx#readme",
   "dependencies": {
     "@babel/runtime": "^7.20.13",
+    "axios": "^1.2.3",
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.3.0",
+    "mongoose": "^6.8.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
