@@ -1,0 +1,1 @@
+GET "https://uofthacksx.onrender.com/api/allLocations" HTTP/1.1

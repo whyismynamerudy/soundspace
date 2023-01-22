@@ -2,7 +2,7 @@ const axios = require('axios');
 const apiRouter = require('express').Router();
 
 apiRouter.get('/allLocations', async (req, res) => {
-    fetch("https://uofthacksx.onrender.com/graphql", {
+    await fetch("https://uofthacksx.onrender.com/graphql", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
