@@ -6,7 +6,7 @@ A cross-platform mobile application designed for students at the University of T
 - Anytime you pull from GitHub, run the command "npm i" in the terminal to install any new npm packages that are being used
 - To run a development server locally, run the command "npm run dev" - this uses nodemon to create a development server that automatically refreshes anytime you make changes locally to your files.
 
-# Languages and Tools Used
+## Languages and Tools Used
 Javascript, React Native, Python, GraphQL, and Flask
 
 ## Features
