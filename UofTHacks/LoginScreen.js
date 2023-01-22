@@ -11,8 +11,6 @@ const height = Dimensions.get("window").height;
 const width = Dimensions.get("window").width;
 import { StatusBar } from "expo-status-bar";
 
-import RegisterScreen from "./RegisterScreen";
-
 export default function LoginScreen({ navigation, route }) {
 	const [email, onChangeEmail] = React.useState("");
 	const [pass, onChangePass] = React.useState("");
