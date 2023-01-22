@@ -57,7 +57,7 @@ export default function LoginScreen({ navigation, route }) {
 					if (pass != pass2) {
 						alert("Passwords do not match");
 					} else {
-						navigation.navigate("Record");
+						navigation.navigate("Map");
 						alert("Account created");
 					}
 				}}
