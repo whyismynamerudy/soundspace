@@ -1,5 +1,5 @@
-## UofTHacks X
-# UofT SoundSpace
+# UofTHacks X
+## UofT SoundSpace
 A cross-platform mobile application designed for students at the University of Toronto to discover quiet and noiser locations on campus. 
 
 ## Running the Project
