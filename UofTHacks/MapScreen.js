@@ -8,8 +8,8 @@ import {
 } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import MapView, { Callout, Circle, Marker } from "react-native-maps";
-import { faSquareCheck } from "@fortawesome/free-solid-svg-icons/faSquareCheck";
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
+import { faMicrophone } from "@fortawesome/free-solid-svg-icons";
 
 export default function MapScreen({ navigation, route }) {
 	const [pin, setPin] = React.useState({
@@ -96,29 +96,32 @@ export default function MapScreen({ navigation, route }) {
 			<TouchableOpacity
 				style={{
 					position: "absolute",
-					bottom: 30,
-					right: 30,
+					bottom: 50,
+					right: 50,
 					zIndex: 100,
-					width: 60,
-					height: 60,
+					width: 100,
+					height: 50,
 					backgroundColor: "rgb(37, 53, 90)",
 					borderRadius: 20,
+					alignItems: "center",
+					justifyContent: "center",
 				}}
 				onPress={() => {
 					navigation.navigate("Record");
 				}}
 			>
-				<FontAwesomeIcon
-					style={{}}
-					icon={faSquareCheck}
-					size={30}
-				></FontAwesomeIcon>
+				<Text style={styles.continueText}>Record</Text>
 			</TouchableOpacity>
 		</View>
 	);
 }
 
 const styles = StyleSheet.create({
+	continueText: {
+		color: "white",
+		fontSize: 20,
+		fontWeight: "bold",
+	},
 	container: {
 		flex: 1,
 		backgroundColor: "#fff",
