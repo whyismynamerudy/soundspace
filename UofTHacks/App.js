@@ -78,8 +78,9 @@ const RecordScreen = ({ navigation }) => {
 		const uri = recording.getURI();
 		setTimerText("Recording saved!");
 		console.log("Recording stopped and stored at", uri);
-		console.log(getAverageAmplitudeFromAudio(uri));
-		navigation.navigate("Upload");
+		let averageAmplitude = getAverageAmplitudeFromAudio(uri);
+		console.log(averageAmplitude);
+		navigation.navigate("Upload", { avgAmp: averageAmplitude });
 	}
 
 	const getAverageAmplitudeFromAudio = (uri) => {
