@@ -96,8 +96,8 @@ export default function MapScreen({ navigation, route }) {
 			<TouchableOpacity
 				style={{
 					position: "absolute",
-					bottom: 30,
-					right: 30,
+					bottom: 50,
+					right: 50,
 					zIndex: 100,
 					width: 60,
 					height: 60,

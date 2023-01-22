@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
 		marginTop: height * 0.1,
 	},
 	loginButton: {
-		marginTop: height * 0.02,
+		marginTop: height * 0.01,
 		width: width * 0.35,
 		height: width * 0.15,
 		borderRadius: width * 0.075,
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
 		fontSize: 0.08 * width,
 		fontWeight: "bold",
 		color: "white",
-		marginTop: height * 0.1,
+		marginTop: height * 0.05,
 	},
 	container: {
 		flex: 1,
