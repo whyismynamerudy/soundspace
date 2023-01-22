@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import UploadScreen from "./UploadScreen";
 import LoginScreen from "./LoginScreen";
 import RegisterScreen from "./RegisterScreen";
+import MapScreen from "./MapScreen";
 
 import {
 	StyleSheet,
@@ -35,6 +36,7 @@ export default function App({ navigation }) {
 				<Stack.Screen name="Record" component={RecordScreen} />
 				<Stack.Screen name="Upload" component={UploadScreen} />
 				<Stack.Screen name="Register" component={RegisterScreen} />
+				<Stack.Screen name="Map" component={MapScreen} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
