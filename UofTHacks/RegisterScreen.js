@@ -11,15 +11,14 @@ const height = Dimensions.get("window").height;
 const width = Dimensions.get("window").width;
 import { StatusBar } from "expo-status-bar";
 
-import RegisterScreen from "./RegisterScreen";
-
 export default function LoginScreen({ navigation, route }) {
 	const [email, onChangeEmail] = React.useState("");
 	const [pass, onChangePass] = React.useState("");
+	const [pass2, onChangePass2] = React.useState("");
 
 	return (
 		<View style={styles.container}>
-			<Text style={styles.title}>Login</Text>
+			<Text style={styles.title}>Register</Text>
 			<View>
 				<Text style={styles.inputField}>Username</Text>
 				<TextInput
@@ -41,20 +40,26 @@ export default function LoginScreen({ navigation, route }) {
 					placeholder="Password"
 					placeholderTextColor={"grey"}
 				/>
+				<Text style={styles.inputField}>Repeat Password</Text>
+				<TextInput
+					onChangeText={onChangePass2}
+					value={pass2}
+					style={styles.input}
+					secureTextEntry={true}
+					keyboardType="default"
+					placeholder="Password"
+					placeholderTextColor={"grey"}
+				/>
 			</View>
 			<TouchableOpacity
 				style={styles.loginButton}
 				onPress={() => {
-					navigation.navigate("Record");
-				}}
-			>
-				<Text style={styles.loginText}>Login</Text>
-			</TouchableOpacity>
-			<Text style={styles.noAcc}>Don't have an account? </Text>
-			<TouchableOpacity
-				style={styles.loginButton}
-				onPress={() => {
-					navigation.navigate("Register");
+					if (pass != pass2) {
+						alert("Passwords do not match");
+					} else {
+						navigation.navigate("Record");
+						alert("Account created");
+					}
 				}}
 			>
 				<Text style={styles.loginText}>Register</Text>

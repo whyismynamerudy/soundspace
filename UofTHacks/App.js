@@ -5,6 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import UploadScreen from "./UploadScreen";
 import LoginScreen from "./LoginScreen";
+import RegisterScreen from "./RegisterScreen";
 
 import {
 	StyleSheet,
@@ -33,6 +34,7 @@ export default function App({ navigation }) {
 				<Stack.Screen name="Login" component={LoginScreen} />
 				<Stack.Screen name="Record" component={RecordScreen} />
 				<Stack.Screen name="Upload" component={UploadScreen} />
+				<Stack.Screen name="Register" component={RegisterScreen} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
@@ -71,12 +73,18 @@ const RecordScreen = ({ navigation }) => {
 		await recording.stopAndUnloadAsync();
 		await Audio.setAudioModeAsync({
 			allowsRecordingIOS: false,
+			playsInSilentModeIOS: true,
 		});
 		const uri = recording.getURI();
 		setTimerText("Recording saved!");
-		// console.log('Recording stopped and stored at', uri);
-		navigation.navigate("Upload", { name: "Jane" });
+		console.log("Recording stopped and stored at", uri);
+		console.log(getAverageAmplitudeFromAudio(uri));
+		navigation.navigate("Upload");
 	}
+
+	const getAverageAmplitudeFromAudio = (uri) => {
+		return Math.random() * 100;
+	};
 
 	return (
 		<View style={styles.container}>
